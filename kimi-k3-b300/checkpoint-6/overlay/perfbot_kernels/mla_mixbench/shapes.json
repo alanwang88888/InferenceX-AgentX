@@ -1,0 +1,86 @@
+[
+ {
+  "cls": "routed",
+  "n": 384,
+  "ctx": 74880,
+  "m03_image_ms": 43.65,
+  "m03_absorbed_ms": 15.6
+ },
+ {
+  "cls": "routed",
+  "n": 128,
+  "ctx": 123776,
+  "m03_image_ms": 70.74,
+  "m03_absorbed_ms": 6.56
+ },
+ {
+  "cls": "routed",
+  "n": 128,
+  "ctx": 153472,
+  "m03_image_ms": 88.13,
+  "m03_absorbed_ms": 7.51
+ },
+ {
+  "cls": "routed",
+  "n": 384,
+  "ctx": 286208,
+  "m03_image_ms": 162.33,
+  "m03_absorbed_ms": 40.96
+ },
+ {
+  "cls": "ctx>300k",
+  "n": 640,
+  "ctx": 440832,
+  "m03_image_ms": 246.23,
+  "m03_absorbed_ms": 118.66
+ },
+ {
+  "cls": "ctx>300k",
+  "n": 256,
+  "ctx": 471296,
+  "m03_image_ms": 267.95,
+  "m03_absorbed_ms": 35.48
+ },
+ {
+  "cls": "ctx>300k",
+  "n": 128,
+  "ctx": 510848,
+  "m03_image_ms": 289.58,
+  "m03_absorbed_ms": 19.19
+ },
+ {
+  "cls": "ctx>300k",
+  "n": 2432,
+  "ctx": 476160,
+  "m03_image_ms": 311.41,
+  "m03_absorbed_ms": 559.21
+ },
+ {
+  "cls": "n>512",
+  "n": 1024,
+  "ctx": 66560,
+  "m03_image_ms": 39.71,
+  "m03_absorbed_ms": 29.88
+ },
+ {
+  "cls": "n>512",
+  "n": 2560,
+  "ctx": 115200,
+  "m03_image_ms": 67.25,
+  "m03_absorbed_ms": 176.81
+ },
+ {
+  "cls": "n>512",
+  "n": 768,
+  "ctx": 171264,
+  "m03_image_ms": 96.76,
+  "m03_absorbed_ms": 53.92
+ },
+ {
+  "cls": "n>512",
+  "n": 1536,
+  "ctx": 293376,
+  "m03_image_ms": 173.32,
+  "m03_absorbed_ms": 169.71
+ }
+]

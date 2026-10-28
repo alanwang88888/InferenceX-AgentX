@@ -1,0 +1,16 @@
+{
+  "l1-eval-off": {
+    "overlay": {
+      "class": "ctl",
+      "source": "<internal path>/bundles/ctl",
+      "tree_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "l1-eval-on": {
+    "overlay": {
+      "class": "R2",
+      "source": "<internal path>/bundle/land-1b",
+      "tree_sha256": "09437784890601b7992cb5f75941167251d35197f572bd60f24e27c69c84eb18"
+    }
+  }
+}

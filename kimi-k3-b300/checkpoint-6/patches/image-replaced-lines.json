@@ -1,0 +1,35 @@
+{
+ "rule": "overlay file == image file with tagged lines added and the recorded replacements applied. scripts/make_image_diff.py --check reverses every replacement below (the overlay block, exact text, must occur once; it becomes the base block), then removes every line containing \"# PERFBOT\", and must reproduce the sha256 in image-base-sha256.json. Every overlay block carries the tag on each line that is not in the base.",
+ "files": {
+  "vllm/v1/kv_cache_interface.py": [
+   {
+    "member": "CKPT-COW (item 04, land-5)",
+    "why": "the checkpoint-column test moves into perfbot_ckpt_case(); switch off it returns GT iff checkpoint_col > initial_state_col, as the base",
+    "overlay": [
+     "    return (",
+     "        query_start % hash_block_size == 0",
+     "        and perfbot_ckpt_case(query_start, query_end, mamba_block_size) is not None  # PERFBOT P-07: served = \"GT\" only"
+    ],
+    "base": [
+     "    initial_state_col = (query_start - 1) // mamba_block_size",
+     "    checkpoint_col = cdiv(query_end, mamba_block_size) - 2",
+     "    return (",
+     "        query_start % hash_block_size == 0",
+     "        and checkpoint_col > initial_state_col"
+    ]
+   }
+  ],
+  "vllm/v1/core/single_type_kv_cache_manager.py": [
+   {
+    "member": "CKPT-COW (item 04, land-5)",
+    "why": "one extra physical block for the LT / EQ_ALIGNED cases; switch off cow_extra is 0, as the base",
+    "overlay": [
+     "                physical_block_cap = 1 + int(has_partial_hit) + checkpoint_block + cow_extra  # PERFBOT P-07: was without cow_extra"
+    ],
+    "base": [
+     "                physical_block_cap = 1 + int(has_partial_hit) + checkpoint_block"
+    ]
+   }
+  ]
+ }
+}

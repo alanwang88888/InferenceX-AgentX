@@ -22,6 +22,8 @@ Per-user decode speed of Kimi-K3 (fp4) on one node of 8x NVIDIA B300 under the I
 | 8 | 63.9 | 151.7 | 207.6 | 1.368x |
 | 32 | 17.6 | 17.3 | 18.4 | 1.061x (1.044x key-matched) |
 
+The pushed checkpoint-6 tree (code overlay, server and client commands, raw results, judge outputs, audit) is in [`checkpoint-6/`](checkpoint-6/); its `README.md` has the reproduce steps.
+
 Speedup vs B is same-build, 1200 s fast protocol; A is cross-build and cross-protocol. At conc 1 and 8, B is one stock run from an earlier session; at conc 32, B is the mean of eight stock runs, with the key-matched sensitivity in brackets.
 B and ours share model, quantization and routing; A is InferenceX's published B300 configuration of the same model (fields that differ or are unpublished: vLLM build 5894fdf vs 49cb2bbf; decode executor stock vs latency_specialized (a vLLM option); protocol 3600 s / warmup 10 vs 1200 s / warmup 1; KV offload (Mooncake DRAM) vs none; recipe fingerprint 61ba8917 vs unpublished; conc-32 speculation unpublished (API label 'mtp')).
 

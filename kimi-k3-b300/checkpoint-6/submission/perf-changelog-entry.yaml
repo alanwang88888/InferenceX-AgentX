@@ -1,0 +1,10 @@
+# Append to the physical end of inferencex-e2e/perf-changelog.yaml. Fill the PR link. Numbers: from results/checkpoint-4/VERDICT.md and conc1/VERDICT.md.
+- config-keys:
+    - kimik3-fp4-b300-vllm-agentic-dspark
+  scenario-type:
+    - agentic-coding
+  description:
+    - "Pin the Kimi-K3 B300 vLLM agentic image to vllm/vllm-openai:nightly-49cb2bbf71cfd36ee5aa33d1e184b1cddff55294@sha256:8c1434bfee7d7626eef78ef70600434ffba4a1b8813cb1d1c8707ad25f47035e (the GB300 pin) and run its latency_specialized decode backend on B300 with flashinfer autotune."
+    - "conc 8: add CUDA-graph capture sizes 7, 14, 21, 28, 35 so 1-5 decoders x 7 draft tokens hit a captured graph; fused rejection-sampler tail, draft prep and next-step prologue (one CuTe DSL launch each); DSpark draft layer with Lamport all-reduce, fused query and LSE-combine kernels (22 -> 8 launches per layer, bit-equal); MoE experts stage with the shared expert on the stage grid at 24-40 rows; adaptive context segments for the chunked-context MLA prefill; prefill suffix restaged in collider steps; MLA decode variable split with a fused reduction and a one-pass MLA decode core with split PV MMA; MoE front pin and a lean experts stage; mamba prefix-cache checkpoint copy-on-write when the checkpoint column meets the initial-state column; a KDA decode kernel at 2 CTAs/SM with the gate warp folded into the compute warps, and the same schedule on the 12-head verify row. Engine-side changes shipped as an overlay under the waiver docs/waiver/<PR>.md; upstreaming to vLLM is the removal plan."
+    - "Local 1200 s fast runs on 8x B300: conc 8 5.24 ms official p90 ITL -> 190.8 tok/s/user vs 6.59 ms (151.7 tok/s/user) for the unmodified image of record (cross-run); full-decode p90 5.86 ms. conc 1 3.02 ms (331.1 tok/s/user) vs 3.08 ms. GSM8K 0.9697 strict (real acceptance), floor 0.90."
+  pr-link: https://github.com/SemiAnalysisAI/InferenceX/pull/TBD  # the PR is not yet opened

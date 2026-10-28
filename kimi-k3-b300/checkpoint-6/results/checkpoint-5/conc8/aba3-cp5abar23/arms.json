@@ -1,0 +1,86 @@
+[
+ {
+  "argv": [
+   "bash",
+   "serve.sh"
+  ],
+  "cwd": "",
+  "env": {
+   "PERFBOT_DURATION": "fast",
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "0",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_MODE": "throughput",
+   "PERFBOT_OVERLAY": "bundles/ctl-land8/overlay",
+   "PERFBOT_RESULTS": "results/ctl-land8",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--compilation-config {\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"cudagraph_capture_sizes\":[7,8,14,16,21,24,28,32,35,40,48,56,64,72,80,88,96,104,112,120,128,256,512,1024,2048,4096,8192]}"
+  },
+  "name": "ctl-land8"
+ },
+ {
+  "argv": [
+   "bash",
+   "serve.sh"
+  ],
+  "cwd": "",
+  "env": {
+   "PERFBOT_DURATION": "fast",
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "0",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_MODE": "throughput",
+   "PERFBOT_OVERLAY": "bundles/land9/overlay",
+   "PERFBOT_RESULTS": "results/land9",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--compilation-config {\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"cudagraph_capture_sizes\":[5,6,10,12,15,18,20,24,25,30,35,36,40,42,48,56,64,72,80,88,96,104,112,120,128,256,512,768,1024,1280,1536,1792,2048,2304,2560,2816,3072,3328,3584,3840,4096,4352,4608,4864,5120,5376,5632,5888,6144,6400,6656,6912,7168,7424,7680,7936,8192]} --speculative-config {\"method\":\"dspark\",\"model\":\"/workspace/draft\",\"num_speculative_tokens\":5,\"attention_backend\":\"TOKENSPEED_MLA\",\"draft_sample_method\":\"probabilistic\",\"rejection_sample_method\":\"synthetic\",\"synthetic_acceptance_length\":3.62}"
+  },
+  "name": "land9"
+ },
+ {
+  "argv": [
+   "bash",
+   "serve.sh"
+  ],
+  "cwd": "",
+  "env": {
+   "PERFBOT_DURATION": "fast",
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "0",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_MODE": "throughput",
+   "PERFBOT_OVERLAY": "bundles/ctl8-end/overlay",
+   "PERFBOT_RESULTS": "results/ctl8-end",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--compilation-config {\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"cudagraph_capture_sizes\":[7,8,14,16,21,24,28,32,35,40,48,56,64,72,80,88,96,104,112,120,128,256,512,1024,2048,4096,8192]}"
+  },
+  "name": "ctl8-end"
+ }
+]

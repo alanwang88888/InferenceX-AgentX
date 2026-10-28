@@ -1,0 +1,168 @@
+{
+  "results": {
+    "gsm8k": {
+      "alias": "gsm8k",
+      "exact_match,strict-match": 0.9696739954510993,
+      "exact_match_stderr,strict-match": 0.004723487465514764,
+      "exact_match,flexible-extract": 0.9689158453373768,
+      "exact_match_stderr,flexible-extract": 0.004780296718393357
+    }
+  },
+  "group_subtasks": {
+    "gsm8k": []
+  },
+  "configs": {
+    "gsm8k": {
+      "task": "gsm8k",
+      "tag": [
+        "math_word_problems"
+      ],
+      "dataset_path": "openai/gsm8k",
+      "dataset_name": "main",
+      "training_split": "train",
+      "test_split": "test",
+      "fewshot_split": "train",
+      "doc_to_text": "Question: {{question}}\nEnd your response with the answer on the last line, formatted as: #### [number]\nAnswer:",
+      "doc_to_target": "{{answer}}",
+      "unsafe_code": false,
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 5,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": false,
+          "regexes_to_ignore": [
+            ",",
+            "\\$",
+            "(?s).*#### ",
+            "\\.$"
+          ]
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "<|im_end|>"
+        ],
+        "do_sample": false,
+        "temperature": 0,
+        "max_tokens": 12288,
+        "top_p": 1
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "strict-match",
+          "filter": [
+            {
+              "function": "regex",
+              "group_select": -1,
+              "regex_pattern": "#### (\\-?[0-9\\.\\,]+)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        },
+        {
+          "name": "flexible-extract",
+          "filter": [
+            {
+              "function": "regex",
+              "group_select": -1,
+              "regex_pattern": "(-?[$0-9.,]{2,})|(-?[0-9]+)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 3.0,
+        "model": "moonshotai/Kimi-K3",
+        "base_url": "http://127.0.0.1:8000/v1/chat/completions",
+        "api_key": "EMPTY",
+        "eos_string": "</s>",
+        "max_retries": 5,
+        "num_concurrent": 16,
+        "timeout": 1800,
+        "tokenized_requests": false,
+        "max_length": 16384
+      }
+    }
+  },
+  "versions": {
+    "gsm8k": 3.0
+  },
+  "n-shot": {
+    "gsm8k": 5
+  },
+  "higher_is_better": {
+    "gsm8k": {
+      "exact_match": true
+    }
+  },
+  "n-samples": {
+    "gsm8k": {
+      "original": 1319,
+      "effective": 1319
+    }
+  },
+  "config": {
+    "model": "local-chat-completions",
+    "model_args": {
+      "model": "moonshotai/Kimi-K3",
+      "base_url": "http://127.0.0.1:8000/v1/chat/completions",
+      "api_key": "EMPTY",
+      "eos_string": "</s>",
+      "max_retries": 5,
+      "num_concurrent": 16,
+      "timeout": 1800,
+      "tokenized_requests": false,
+      "max_length": 16384
+    },
+    "batch_size": 1,
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {
+      "max_tokens": 12288,
+      "temperature": 0,
+      "top_p": 1
+    },
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": null,
+  "date": 1792473722.9698458,
+  "pretty_env_info": "PyTorch version: 2.14.1+cpu\nIs debug build: False\nCUDA used to build PyTorch: Could not collect\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 24.04.3 LTS (x86_64)\nGCC version: (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nClang version: Could not collect\nCMake version: Could not collect\nLibc version: glibc-2.39\n\nPython version: 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (64-bit runtime)\nPython platform: Linux-6.8.0-139-generic-x86_64-with-glibc2.39\nIs CUDA available: False\nCUDA runtime version: 13.0.88\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: \nGPU 0: NVIDIA B300 SXM6 AC\nGPU 1: NVIDIA B300 SXM6 AC\nGPU 2: NVIDIA B300 SXM6 AC\nGPU 3: NVIDIA B300 SXM6 AC\nGPU 4: NVIDIA B300 SXM6 AC\nGPU 5: NVIDIA B300 SXM6 AC\nGPU 6: NVIDIA B300 SXM6 AC\nGPU 7: NVIDIA B300 SXM6 AC\n\nNvidia driver version: Could not collect\ncuDNN version: Could not collect\nIs XPU available: False\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: False\nCaching allocator config: N/A\n\nCPU:\nArchitecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           52 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  224\nOn-line CPU(s) list:                     0-223\nVendor ID:                               GenuineIntel\nModel name:                              INTEL(R) XEON(R) PLATINUM 8570\nCPU family:                              6\nModel:                                   207\nThread(s) per core:                      2\nCore(s) per socket:                      56\nSocket(s):                               2\nStepping:                                2\nCPU(s) scaling MHz:                      28%\nCPU max MHz:                             4000.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                4200.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cat_l2 cdp_l3 intel_ppin cdp_l2 ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect user_shstk avx_vnni avx512_bf16 wbnoinvd dtherm ida arat pln pts hwp hwp_act_window hwp_epp hwp_pkg_req vnmi avx512vbmi umip pku ospke waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid bus_lock_detect cldemote movdiri movdir64b enqcmd fsrm md_clear serialize tsxldtrk pconfig arch_lbr ibt amx_bf16 avx512_fp16 amx_tile amx_int8 flush_l1d arch_capabilities ibpb_exit_to_user\nVirtualization:                          VT-x\nL1d cache:                               5.3 MiB (112 instances)\nL1i cache:                               3.5 MiB (112 instances)\nL2 cache:                                224 MiB (112 instances)\nL3 cache:                                600 MiB (2 instances)\nNUMA node(s):                            2\nNUMA node0 CPU(s):                       0-55,112-167\nNUMA node1 CPU(s):                       56-111,168-223\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n\nVersions of relevant libraries:\n[pip3] Could not collect\n[conda] Could not collect",
+  "transformers_version": "5.19.0",
+  "lm_eval_version": "0.4.9.2",
+  "upper_git_hash": null,
+  "task_hashes": {
+    "gsm8k": "817087e7f46d87196e8aec44051fb73ec5731beec1ba4bd3750c178d25237d60"
+  },
+  "model_source": "local-chat-completions",
+  "model_name": "",
+  "model_name_sanitized": "",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": true,
+  "chat_template": "",
+  "chat_template_sha": null,
+  "start_time": 116052.255832822,
+  "end_time": 116259.947859487,
+  "total_evaluation_time_seconds": "207.69202666499768"
+}

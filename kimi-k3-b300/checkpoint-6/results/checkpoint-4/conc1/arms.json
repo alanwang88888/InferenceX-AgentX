@@ -1,0 +1,38 @@
+[
+ {
+  "name": "c1-land5a",
+  "note": "conc 1 ABA (coordinator, 2026-10-21): same key a4b725cd, same probes (STEPLOG + driver-default CUTE_PRETRACE + LOADTIME), same arm form as arms-conc1land5a / arms-conc1land8; resolves c1-land8 vs c1-land5 and gives the same-request conc 1 A/A (a vs b).",
+  "env": {
+   "PERFBOT_CONC": "1",
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1",
+   "PERFBOT_EXP_LOADTIME": "1",
+   "PERFBOT_EXP_STEPLOG": "1"
+  },
+  "overlay": "<path>"
+ },
+ {
+  "name": "c1-land8",
+  "note": "conc 1 ABA (coordinator, 2026-10-21): same key a4b725cd, same probes (STEPLOG + driver-default CUTE_PRETRACE + LOADTIME), same arm form as arms-conc1land5a / arms-conc1land8; resolves c1-land8 vs c1-land5 and gives the same-request conc 1 A/A (a vs b).",
+  "env": {
+   "PERFBOT_CONC": "1",
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1",
+   "PERFBOT_EXP_LOADTIME": "1",
+   "PERFBOT_EXP_STEPLOG": "1"
+  },
+  "overlay": "<path>"
+ },
+ {
+  "name": "c1-land5b",
+  "note": "conc 1 ABA (coordinator, 2026-10-21): same key a4b725cd, same probes (STEPLOG + driver-default CUTE_PRETRACE + LOADTIME), same arm form as arms-conc1land5a / arms-conc1land8; resolves c1-land8 vs c1-land5 and gives the same-request conc 1 A/A (a vs b).",
+  "env": {
+   "PERFBOT_CONC": "1",
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1",
+   "PERFBOT_EXP_LOADTIME": "1",
+   "PERFBOT_EXP_STEPLOG": "1"
+  },
+  "overlay": "<path>"
+ }
+]

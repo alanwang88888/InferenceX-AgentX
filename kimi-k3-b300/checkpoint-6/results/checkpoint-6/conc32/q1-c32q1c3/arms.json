@@ -1,0 +1,46 @@
+[
+ {
+  "name": "c32-l9q1-a",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "1",
+   "PERFBOT_CONC": "32",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--gpu-memory-utilization 0.90"
+  },
+  "note": "cell c32q1c3 (replaces c32q1c1, pulled unsubmitted, coord 23:29Z STARTUP RULING REVISED): CERTIFYING candidate of record for conc 32 (coord 23:05Z (3)), arm 1/2 of 3 over cells c32q1c3+c32q1c2. Config = c32p0c (land-9 r2 q1 + --gpu-memory-utilization 0.90, mnbt 16384 recipe) but UNSALTED: narrow key = stock c32 fields -> record bdcc573b (c32p0c hit=35 tuned=0 under the same fields). PRETRACE=1 (parity with stock; first PRETRACE=1 arm of this config lays the trace of record, READ quotes cubins=<n>:<sha>). Seed 594036 (coord 23:30Z)."
+ },
+ {
+  "name": "c32-l9q1-b",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "1",
+   "PERFBOT_CONC": "32",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--gpu-memory-utilization 0.90"
+  },
+  "note": "cell c32q1c3 (replaces c32q1c1, pulled unsubmitted, coord 23:29Z STARTUP RULING REVISED): CERTIFYING candidate of record for conc 32 (coord 23:05Z (3)), arm 2/2 of 3 over cells c32q1c3+c32q1c2. Config = c32p0c (land-9 r2 q1 + --gpu-memory-utilization 0.90, mnbt 16384 recipe) but UNSALTED: narrow key = stock c32 fields -> record bdcc573b (c32p0c hit=35 tuned=0 under the same fields). PRETRACE=1 (parity with stock; first PRETRACE=1 arm of this config lays the trace of record, READ quotes cubins=<n>:<sha>). Seed 535876 (coord 23:30Z)."
+ }
+]

@@ -1,0 +1,21 @@
+READ cpread ab5260c6; pieces cp4judge.py dfe1ad11 c1pair.py a46dca57 c1aba.py f8f9fc15 split.py 3c7cb5d6 evalread 55fdad48
+LIVE ctl-land8  PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE land9      PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl8-end   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+== conc 8 ABA (cp4judge.enum; bar = max(cp4 bar of record, this A/A))
+official   p90_itl_ms: ctl-land8 5.080 land9 4.770 ctl8-end 5.640; A/A 0.560; bar 0.660; land9-mean(ctl) -0.590 -> INSIDE; vs ctl-land8 -0.310 INSIDE, vs ctl8-end -0.870 GAIN; at A/A alone: GAIN
+consistent p90_full_decode_itl_ms: ctl-land8 6.181 land9 5.449 ctl8-end 6.235; A/A 0.054; bar 0.625; land9-mean(ctl) -0.759 -> GAIN; vs ctl-land8 -0.732 GAIN, vs ctl8-end -0.786 GAIN; at A/A alone: GAIN
+NOTE p90_e2el_per_osl_ms_per_token: ctl-land8 9.000 land9 8.404 ctl8-end 9.164; A/A 0.164; d vs ctl-land8 -0.596, vs ctl8-end -0.760, vs mean -0.678 (no enum)
+== guards (bound = max(cp3 ctl spread, this A/A); land vs mean(ctl))
+GUARD ttft_p90_ms: 1030.950 / 937.770 / 980.770; d -68.090; bound 50.180 -> OK
+GUARD output_tput_per_gpu: 45.268 / 45.394 / 45.231; d +0.144; bound 0.037 -> OK
+ARM ctl-land8  tok/s/user 196.9 (official 5.080); AL 3.841; failed 0.0021; ready 660 s; peak dev 262.93 GiB
+ARM land9      tok/s/user 209.6 (official 4.770); AL 3.618; failed 0.0021; ready 770 s; peak dev 267.65 GiB
+ARM ctl8-end   tok/s/user 177.3 (official 5.640); AL 3.840; failed 0.0021; ready 660 s; peak dev 262.93 GiB
+== split.py per arm (pure / collision / jitter, ms/token)
+ctl-land8 off band n 71 (3.943-6.088): statistic 4.697 = pure 3.946 + collision 0.740 + jitter 0.011 + unexplained 0.000 ms/token; mixed steps per request 1.7
+ctl-land8 con band n 71 (4.944-7.696): statistic 5.929 = pure 4.557 + collision 1.379 + jitter -0.006 + unexplained 0.000 ms/token; mixed steps per request 3.8
+land9 off band n 72 (3.777-6.061): statistic 4.621 = pure 3.752 + collision 0.866 + jitter 0.003 + unexplained -0.000 ms/token; mixed steps per request 2.1
+land9 con band n 72 (4.492-6.627): statistic 5.199 = pure 4.161 + collision 1.039 + jitter 0.000 + unexplained -0.000 ms/token; mixed steps per request 3.4
+ctl8-end off band n 71 (4.441-7.084): statistic 5.345 = pure 4.207 + collision 1.131 + jitter 0.007 + unexplained 0.000 ms/token; mixed steps per request 2.5
+ctl8-end con band n 71 (5.139-7.669): statistic 5.955 = pure 4.429 + collision 1.515 + jitter 0.011 + unexplained 0.000 ms/token; mixed steps per request 4.1

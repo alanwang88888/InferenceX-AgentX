@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "K3 InferenceX checkpoints: Kimi-K3 on 8x B300 over upstream vLLM"
+message: "If you use this work, cite it with the checkpoint tag you used."
+type: software
+authors:
+  - family-names: Wang
+    given-names: Alan
+    affiliation: NVIDIA
+repository-code: "https://github.com/alanwang88888/InferenceX-AgentX"
+license: Apache-2.0
+version: checkpoint-1-land-1b
+date-released: "2026-10-20"
+keywords:
+  - InferenceX
+  - Kimi-K3
+  - vLLM
+  - B300
+  - CuTe DSL
+  - speculative decoding
+references:
+  - type: software
+    title: vLLM
+    repository-code: "https://github.com/vllm-project/vllm"
+    commit: 49cb2bbf71cfd36ee5aa33d1e184b1cddff55294
+  - type: software
+    title: InferenceX
+    authors:
+      - name: SemiAnalysis
+    repository-code: "https://github.com/SemiAnalysisAI/InferenceX"
+    commit: 7b28963e6f81da9cf1863928c442a04a1fd92118

@@ -1,0 +1,24 @@
+[
+ {
+  "name": "c32-l9q1-ev",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_EXP_CUTE_PRETRACE": "1",
+   "PERFBOT_CONC": "32",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--gpu-memory-utilization 0.90"
+  },
+  "note": "cell c32q1ev: GATE 2 (coord 07:37Z GATE 2 PREP) of conc-32 candidate land-9 r2 q1 + --gpu-memory-utilization 0.90; eval_only (point + GSM8K strict >= .90 + AL per landing gates). Bundle land-9-r2-q1 unchanged (= c32q1c2/c32q1c3), env = c32q1c3 arm a byte-equal (PRETRACE=1, PERFBOT_CONC 32 -> c32 recipe, unsalted, ATKEY record bdcc573b). Pinned measure-2 @5b410c38. Seed 271356 (coord 07:37Z, drawn before dry). QUEUE only after coord ruling on read 1; else id burned."
+ }
+]

@@ -1,0 +1,9 @@
+READ cpread ab5260c6; pieces cp4judge.py dfe1ad11 c1pair.py a46dca57 c1aba.py f8f9fc15 split.py 3c7cb5d6 evalread 55fdad48
+== eval (evalread.py)
+LIVE ev-land9   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+GSM8K strict 0.9727 (min 0.9)  gate_failures []
+AL 1.5388  ref 1.5513 = mean(1.5513,) (-0.0125, band 0.042)  stock 1.5898 (-0.0510, cap 0.06)
+per-pos 0.2687 0.1277 0.0739 0.0435 0.0249  (1 + sum = 1.5388)
+liveness 23 items seen, missing none
+RESULT PASS
+EVAL liveness VALID rc 0

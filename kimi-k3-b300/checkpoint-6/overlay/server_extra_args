@@ -1,0 +1,10 @@
+# Landed server flags (D16): one `vllm serve` flag per line (a line is word-split, so `--flag value` works);
+# `#` comments and blank lines are ignored. serve.sh prepends these to PERFBOT_SERVER_EXTRA_ARGS, so an arm's
+# env still appends and vLLM takes the last occurrence; metrics.json overlay_tree_sha256 covers this file and
+# results/<arm>/server_command.txt shows the rendered result. A landed flag item is one line here.
+--enable-flashinfer-autotune  # gap-002 (round 1): after the recipe's --no-enable-flashinfer-autotune; the AutoTuner picks the MegaMoE grouped-GEMM tactic per shape
+# B0 = d6-spec (coordinator ruling (a), 2026-10-19): InferenceX GB300 recipe agg-megakernel-variants.yaml base args carry both lines below; R-UP-G3b d6-spec 5.57 ms ran them as arm env
+--additional-config {"decode_backend":"latency_specialized"}
+--mamba-ssm-cache-dtype float32
+# E14 (coordinator 2026-10-19): PERFBOT-STEPDEC per-step host record in every serve arm (log only; perfbot_kernels/reqlog)
+--scheduler-cls perfbot_kernels.reqlog.stepdec_scheduler

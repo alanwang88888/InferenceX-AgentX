@@ -1,0 +1,80 @@
+{
+  "checks": {
+    "draft": {
+      "files": {
+        "config.json": "5a3c2f4f91c965ed93b14de5f12a4e9c17fd98d8c99916ed2deb26ce8702f970",
+        "model.safetensors": "f9972a636d92a11994cdcfc88fd4c5b5d50d6eb2a89af016031593b8c65c2053"
+      },
+      "revision": "cf6b8244620e7ea4b0651d214f28e89eac75bed6"
+    },
+    "image": {
+      "env": {
+        "CUDA_VERSION": "13.0.2",
+        "NV_CUDA_CUDART_VERSION": "13.0.96-1",
+        "VLLM_BUILD_COMMIT": "49cb2bbf71cfd36ee5aa33d1e184b1cddff55294",
+        "VLLM_IMAGE_TAG": "vllm/vllm-openai:nightly-49cb2bbf71cfd36ee5aa33d1e184b1cddff55294"
+      },
+      "expected_id": "sha256:af62463b697f73d5351bd290b86e23460236d565022c365c044fa8c35e4bf7bd",
+      "fingerprint": "unpinned",
+      "torch": "2.14.0+cu130",
+      "vllm": "0.32.0rc1.dev281+g49cb2bbf7"
+    },
+    "target": {
+      "shards": 96,
+      "tensor_bytes": 1560860324864
+    }
+  },
+  "node": {
+    "cpu_model": "INTEL(R) XEON(R) PLATINUM 8570",
+    "cpus": {
+      "affinity": 224,
+      "cgroup_cpu_max": "max 100000",
+      "cgroup_cpuset": "0-223",
+      "count": 224
+    },
+    "gpus": [
+      "0, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "1, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "2, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "3, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "4, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "5, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "6, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032",
+      "7, NVIDIA B300 SXM6 AC, 615.71.09, 1100.00, 1100.00, 275040, 2032"
+    ],
+    "hostname": "71faefa239b8",
+    "kernel": "6.8.0-139-generic",
+    "nvidia_smi": "615.71.09",
+    "nvlink_topology": "\u001b[4mGPU0\tGPU1\tGPU2\tGPU3\tGPU4\tGPU5\tGPU6\tGPU7\tNIC0\tNIC1\tNIC2\tNIC3\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\tNODE\tNODE\tNODE\tSYS\t0-55,112-167\t0\t\tN/A\nGPU1\tNV18\t X \tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\tNODE\tNODE\tNODE\tSYS\t0-55,112-167\t0\t\tN/A\nGPU2\tNV18\tNV18\t X \tNV18\tNV18\tNV18\tNV18\tNV18\tNODE\tNODE\tNODE\tSYS\t0-55,112-167\t0\t\tN/A\nGPU3\tNV18\tNV18\tNV18\t X \tNV18\tNV18\tNV18\tNV18\tNODE\tNODE\tNODE\tSYS\t0-55,112-167\t0\t\tN/A\nGPU4\tNV18\tNV18\tNV18\tNV18\t X \tNV18\tNV18\tNV18\tSYS\tSYS\tSYS\tNODE\t56-111,168-223\t1\t\tN/A\nGPU5\tNV18\tNV18\tNV18\tNV18\tNV18\t X \tNV18\tNV18\tSYS\tSYS\tSYS\tNODE\t56-111,168-223\t1\t\tN/A\nGPU6\tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\t X \tNV18\tSYS\tSYS\tSYS\tNODE\t56-111,168-223\t1\t\tN/A\nGPU7\tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\tNV18\t X \tSYS\tSYS\tSYS\tNODE\t56-111,168-223\t1\t\tN/A\nNIC0\tNODE\tNODE\tNODE\tNODE\tSYS\tSYS\tSYS\tSYS\t X \tPIX\tNODE\tSYS\t\t\t\t\nNIC1\tNODE\tNODE\tNODE\tNODE\tSYS\tSYS\tSYS\tSYS\tPIX\t X \tNODE\tSYS\t\t\t\t\nNIC2\tNODE\tNODE\tNODE\tNODE\tSYS\tSYS\tSYS\tSYS\tNODE\tNODE\t X \tSYS\t\t\t\t\nNIC3\tSYS\tSYS\tSYS\tSYS\tNODE\tNODE\tNODE\tNODE\tSYS\tSYS\tSYS\t X \t\t\t\t\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n\nNIC Legend:\n\n  NIC0: mlx5_0\n  NIC1: mlx5_1\n  NIC2: mlx5_7\n  NIC3: mlx5_17"
+  },
+  "overlay": {
+    "files": 203,
+    "held": [],
+    "tree_sha256": "6503addb23b2e1eaeab78d1db05b2674bf407d01f978c527e60674921ea69376"
+  },
+  "schema": "k3.perfbot.identity.v2",
+  "status": "pass",
+  "env_perfbot": {
+    "PERFBOT_DURATION": "fast",
+    "PERFBOT_EXP_B35": "F,O",
+    "PERFBOT_EXP_CKPT_COW": "1",
+    "PERFBOT_EXP_CUTE_CACHE": "1",
+    "PERFBOT_EXP_CUTE_PRETRACE": "1",
+    "PERFBOT_EXP_DRAFT_CHAIN": "1",
+    "PERFBOT_EXP_FRONTPIN": "1",
+    "PERFBOT_EXP_GLUE": "X2,S,D,G",
+    "PERFBOT_EXP_INITTIME": "1",
+    "PERFBOT_EXP_KDA_B4OCC": "1",
+    "PERFBOT_EXP_KDA_LA": "1",
+    "PERFBOT_EXP_MLACORE": "1",
+    "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+    "PERFBOT_EXP_PREFILL_GRAPH": "1",
+    "PERFBOT_EXP_STAGE": "L",
+    "PERFBOT_EXP_STEPLOG": "1",
+    "PERFBOT_MLA_CORE_SPLITMMA": "1",
+    "PERFBOT_MODE": "throughput",
+    "PERFBOT_OVERLAY": "bundles/land8/overlay",
+    "PERFBOT_RESULTS": "results/land8",
+    "PERFBOT_SERVER_EXTRA_ARGS": "--compilation-config {\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"cudagraph_capture_sizes\":[7,8,14,16,21,24,28,32,35,40,48,56,64,72,80,88,96,104,112,120,128,256,512,1024,2048,4096,8192]}"
+  }
+}

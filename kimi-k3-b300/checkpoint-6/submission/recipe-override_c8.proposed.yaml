@@ -1,0 +1,31 @@
+# Proposed override_c8 of benchmarks/single_node/srt-slurm-recipes/kimik3/vllm/b300-fp4-mtp/agentic.yaml.
+# Differences from the recipe at 7b28963e: capture sizes 7,14,21,28,35 added; enable-flashinfer-autotune (after the
+# base's no-enable-flashinfer-autotune; vLLM takes the last occurrence); additional-config latency_specialized;
+# mamba-ssm-cache-dtype float32; the overlay switches in env (the overlay itself is the engine patch of the waiver).
+override_c8:
+  roles:
+    agg:
+      args:
+        max-num-seqs: 16
+        gpu-memory-utilization: 0.92
+        compilation-config: '{"cudagraph_mode":"FULL_AND_PIECEWISE","cudagraph_capture_sizes":[7,8,14,16,21,24,28,32,35,40,48,56,64,72,80,88,96,104,112,120,128,256,512,1024,2048,4096,8192]}'
+        speculative-config: '{"method":"dspark","model":"Inferact/Kimi-K3-DSpark","num_speculative_tokens":7,"attention_backend":"TOKENSPEED_MLA","draft_sample_method":"probabilistic","rejection_sample_method":"block"}'
+        enable-flashinfer-autotune: true
+        additional-config: '{"decode_backend":"latency_specialized"}'
+        mamba-ssm-cache-dtype: float32
+      env:
+        PERFBOT_EXP_B35: 'F,O'
+        PERFBOT_EXP_CKPT_COW: '1'
+        PERFBOT_EXP_DRAFT_CHAIN: '1'
+        PERFBOT_EXP_FRONTPIN: '1'
+        PERFBOT_EXP_GLUE: 'X2,S,D,G'
+        PERFBOT_EXP_KDA_B4OCC: '1'
+        PERFBOT_EXP_KDA_LA: '1'
+        PERFBOT_EXP_MLACORE: '1'
+        PERFBOT_EXP_MLA_CTX_SEGMENTS: 'auto'
+        PERFBOT_EXP_PREFILL_GRAPH: '1'
+        PERFBOT_EXP_STAGE: 'L'
+        PERFBOT_MLA_CORE_SPLITMMA: '1'
+  benchmark:
+    env:
+      CONC: '8'

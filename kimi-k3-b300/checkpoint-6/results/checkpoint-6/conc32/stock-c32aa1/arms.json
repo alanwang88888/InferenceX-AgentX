@@ -1,0 +1,26 @@
+[
+ {
+  "name": "c32-s1",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_CONC": "32"
+  },
+  "note": "cell c32aa1: stock reference A/A control 1/3 (coord 14:56Z/16:54Z (4)). Same as c32-stock (override_c32 as published, PERFBOT_CONC=32), but UNSALTED: certifying arm on the laid record bdcc573b (narrow key, stock c32 fields, salt ''), coord 16:57Z rule. Seed 938567 (one per cell)."
+ },
+ {
+  "name": "c32-s2",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_CONC": "32"
+  },
+  "note": "cell c32aa1: stock reference A/A control 2/3 (coord 14:56Z/16:54Z (4)). Same as c32-stock (override_c32 as published, PERFBOT_CONC=32), but UNSALTED: certifying arm on the laid record bdcc573b (narrow key, stock c32 fields, salt ''), coord 16:57Z rule. Seed 938567 (one per cell)."
+ },
+ {
+  "name": "c32-s3",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_CONC": "32"
+  },
+  "note": "cell c32aa1: stock reference A/A control 3/3 (coord 14:56Z/16:54Z (4)). Same as c32-stock (override_c32 as published, PERFBOT_CONC=32), but UNSALTED: certifying arm on the laid record bdcc573b (narrow key, stock c32 fields, salt ''), coord 16:57Z rule. Seed 938567 (one per cell)."
+ }
+]

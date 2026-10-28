@@ -1,0 +1,33 @@
+[
+ {
+  "name": "c32-stock",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_CONC": "32",
+   "PERFBOT_ATKEY_SALT": "c32"
+  },
+  "note": "cell c32p0a, seed 219671 (coord 15:00Z). C32 phase 0 A (coord 14:52Z/14:56Z): stock override_c32 as published (max-num-seqs 64, graphs 1..64, no draft); ratio reference. Salt = one-time cold tune, key warm for later arms (item 04)."
+ },
+ {
+  "name": "c32-l9nd",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_EXP_B35": "F,O",
+   "PERFBOT_EXP_CKPT_COW": "1",
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_FRONTPIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_KDA_B4OCC": "1",
+   "PERFBOT_EXP_KDA_LA": "1",
+   "PERFBOT_EXP_MLACORE": "1",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_EXP_STAGE": "L",
+   "PERFBOT_MLA_CORE_SPLITMMA": "1",
+   "PERFBOT_CONC": "32",
+   "PERFBOT_ATKEY_SALT": "c32",
+   "PERFBOT_EXP_CUTE_PRETRACE": "0"
+  },
+  "note": "cell c32p0a, seed 219671 (coord 15:00Z). C32 phase 0 B' (coord 14:56Z): land-9 r2 env minus PERFBOT_SERVER_EXTRA_ARGS, so recipe c32 server args (64 seqs, graphs 1..64, no draft); like-for-like vs A. DRAFT_CHAIN mark prints at import (cp9aba3 log :30 < ready :939)."
+ }
+]

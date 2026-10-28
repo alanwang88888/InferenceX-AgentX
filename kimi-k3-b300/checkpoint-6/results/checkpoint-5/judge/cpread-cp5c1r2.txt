@@ -1,0 +1,10 @@
+READ cpread ab5260c6; pieces cp4judge.py dfe1ad11 c1pair.py a46dca57 c1aba.py f8f9fc15 split.py 3c7cb5d6 evalread 55fdad48
+LIVE c1-land8   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c1-land9   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+== conc 1 pair (c1pair.py; band = c1aba FLOOR, one pair, no A/A)
+c1-land8: n 153  ITL p50 2.296  p90 3.027  consistent p90 3.106
+c1-land9: n 153  ITL p50 2.284  p90 2.837  consistent p90 2.898
+paired by (conversation, turn, ISL): n 34  ITL delta p50 +0.094  p90 +2.425  mean +0.240 ms
+paired subset: ITL p90 2.684 -> 2.834; osl equal in 34/34
+C1 official   c1-land8 3.027 c1-land9 2.837 delta -0.190 band 0.171 -> GAIN
+C1 consistent c1-land8 3.106 c1-land9 2.898 delta -0.208 band 0.062 -> GAIN (note)

@@ -1,0 +1,154 @@
+{
+ "image": "vllm/vllm-openai:nightly-49cb2bbf71cfd36ee5aa33d1e184b1cddff55294",
+ "vllm_commit": "49cb2bbf71cfd36ee5aa33d1e184b1cddff55294",
+ "rule": "image file == overlay file with every line containing \"# PERFBOT\" removed; a 12-hex value is a prefix",
+ "files": {
+  "vllm/model_executor/layers/fused_moe/experts/trtllm_mxfp4_moe.py": {
+   "sha256": "0a5031135053cee01db058d43039342dca954f40080c2855fefb103789c7d981",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/model_executor/layers/mamba/checkpoint.py": {
+   "sha256": "0ef8c4117d4c80e3ecf2f1754b179d8ce50980c10a7f8383f8f8683aa131eb2a",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/model_executor/warmup/flashinfer_autotune_cache.py": {
+   "sha256": "d0991bc62ea334ff211cca7a9e07853a9003de0403c68bb74c54486bd85d63f3",
+   "source": "sha256 of git show 49cb2bbf:vllm/model_executor/warmup/flashinfer_autotune_cache.py; checked equal to the installed file of the image tarball (sha256 97f09c68...3c48, layer blobs/sha256/32e1eac0abca43f74..., usr/local/lib/python3.12/dist-packages/<rel>)"
+  },
+  "vllm/models/kimi_k3/nvidia/dspark_mla.py": {
+   "sha256": "adfe621d7fbb",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/kda.py": {
+   "sha256": "97c1f1183bc4a019672d30f29aea93c902db9cbccb9567dfa3f29ef26a115c10",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/models/kimi_k3/nvidia/kda_metadata.py": {
+   "sha256": "a77ae9bc5870",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/latent_moe_runner.py": {
+   "sha256": "d27240ecdc51f4d402d2671d7d7f4d8ab1fb9be0f9e2313a8625b259eb51a4ec",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/models/kimi_k3/nvidia/mla.py": {
+   "sha256": "f306e24238dca1fe55a635cf735dcbcacbfac98cef3a5d9c495e7a69a84b9467",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)",
+   "also": "layercheck IMG OK prefix f306e24238dc"
+  },
+  "vllm/models/kimi_k3/nvidia/model.py": {
+   "sha256": "a0a31506f307cef8a7547d336df9a2e38fb907a150be61a71145abb59bdd719f",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/models/kimi_k3/nvidia/ops/attn_res.py": {
+   "sha256": "38c4d67cdb8366cd7b959305ddd251c6b9c9fa408e7481d3dac05ebf3b44028c",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/allreduce_rmsnorm_reduce_scatter_early_exit.py": {
+   "sha256": "126dbd3736ceda0d368b1d651a4d21fc77c6db4ef874e5c2d6a472f8bc8dfd48",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/gemm/projection.py": {
+   "sha256": "b0322067ed37",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/gemm/splitk.py": {
+   "sha256": "3353ece0447d",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/dcp.py": {
+   "sha256": "1e7693dabeac",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/prepared.py": {
+   "sha256": "916217c1febd",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/query.py": {
+   "sha256": "11f4b434d499f6c985d16f16c0bbf914edf58e336a70942f285dc40e5dcf4bb2",
+   "source": "sha256 of git show 49cb2bbf:vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/query.py; checked equal to the installed file of the image tarball (sha256 97f09c68...3c48, layer blobs/sha256/32e1eac0abca43f74..., usr/local/lib/python3.12/dist-packages/<rel>)"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/front.py": {
+   "sha256": "f2c3439f9ecc",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/prepared.py": {
+   "sha256": "bcf71bf4e083bd08ed562028adf9cd6145c1f44269fe172dc90cb41fe2f02eb0",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)",
+   "also": "layercheck IMG OK prefix bcf71bf4e083"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/tail_runtime.py": {
+   "sha256": "778e14a504aa",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/runtime/prefetch.py": {
+   "sha256": "dcfca52ad839",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/models/kimi_k3/nvidia/specialized_decode/runtime/providers.py": {
+   "sha256": "0b6694af1df4",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/attention/backends/mla/prefill/trtllm_ragged.py": {
+   "sha256": "acade256558b",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/attention/ops/dcp.py": {
+   "sha256": "f76296c841363f26c83908229eaddabfce665a9a39b7e802d252885d6d15353e",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/v1/core/sched/scheduler.py": {
+   "sha256": "49f21c9a029c9b04884b183b216c2dcc817bebdf67f2497fc9b339c3f87d0c4c",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/v1/core/single_type_kv_cache_manager.py": {
+   "sha256": "40cdcd418592182b6ca681c2a23efb659daa05587fd7cd28fcb03a7b1fb20fa6",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/v1/kv_cache_interface.py": {
+   "sha256": "39ea5be3054f97238f81ba070ea661f1b5975a6268ced5f413d4a057ea449d4a",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/v1/worker/gpu/cp_utils.py": {
+   "sha256": "d91e59d28d03",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu/model_runner.py": {
+   "sha256": "704a67060e2a",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu/model_states/mamba_hybrid.py": {
+   "sha256": "262de489e3c02a2b1b93acd2a0d88ddced82ecebe050ca95ea91ba3fe501e6f4",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)",
+   "also": "layercheck IMG OK prefix 262de489e3c0"
+  },
+  "vllm/v1/worker/gpu/sample/sampler.py": {
+   "sha256": "620b0ff1bea5",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu/spec_decode/dflash/speculator.py": {
+   "sha256": "28fb34eedddf",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu/spec_decode/dspark/speculator.py": {
+   "sha256": "97bcfaa655c6d4a5ecdfb17ab87b80547e8216b9d15a91c341798ebbb558f146",
+   "source": "overlay/vllm_base.json (sha256 of git show 49cb2bbf:<path>; checked equal to the installed file of the image tarball, see its image_check note)"
+  },
+  "vllm/v1/worker/gpu/spec_decode/rejection_sampler.py": {
+   "sha256": "25759f98e8aa",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu/states.py": {
+   "sha256": "ae5d600c17fb",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  },
+  "vllm/v1/worker/gpu_worker.py": {
+   "sha256": "b401a1e0579df877f16184cb2850f4ddf034bb60f9877500e324fd586a563e20",
+   "source": "git show 49cb2bbf:vllm/v1/worker/gpu_worker.py (sha256 equal to dev-46's CGPROFILE record); not checked against the installed file of the image [unverified], the same status as the five P-07 entries in overlay/vllm_base.json's image_check note"
+  },
+  "vllm/v1/worker/utils.py": {
+   "sha256": "85b23497017e",
+   "source": "layercheck.py --image run inside the served image (vllm/vllm-openai:nightly-49cb2bbf...): sha256 prefix of the stripped overlay file, equal to the image file byte for byte"
+  }
+ }
+}

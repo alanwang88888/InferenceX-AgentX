@@ -1,0 +1,21 @@
+{
+ "tree_sha256": "32533b8745eca301a572dfa86de42cc59419893b562dae19928d306b6e687aeb",
+ "files": 205,
+ "source": "results/checkpoint-5/conc8/*/land9/metrics.json overlay_tree_sha256 (the served tree of every checkpoint-5 land9 arm); the conc-1 arms results/checkpoint-5/conc1/*/c1-land9 served the same 32533b87; the eval arm results/checkpoint-5/eval/ev-land9 served 1153067e (its bundle differs in the speculative-config sampler fields only)",
+ "composition": "pinned harness overlay (workload revision bd6a5f454ef90b6cf8f13d28373e6a090dae42e5, 102 files) with the land-9-r2 bundle (110 served files incl. arm_env.json, harness bundle tree 8025b6c8b253a75e33d240b7d43775121d0f0665226470aba7be319c81fd6b7f in results/checkpoint-5/conc8/*/bundles.json) laid on top; 7 paths overlap. The bundle's overlay record image-replaced-lines.json is not a served file (the harness overlay_record rule); its bytes equal patches/image-replaced-lines.json",
+ "redacted": [
+  "moved to internal/overlay-redacted/ (same bytes; scripts/check_overlay_identity.py hashes the union): the same 12 files as checkpoint 4 (one design note of an OFF member, one benchmark rung script, the harness null-arm module and nine CPU test files whose default fixture paths are internal NFS paths): perfbot_kernels/cutecache/test_cpu.py, perfbot_kernels/experts_stage/test_cpu.py, perfbot_kernels/inittime/test_cpu.py, perfbot_kernels/loadtime/test_cpu.py, perfbot_kernels/mla_core/DESIGN.md, perfbot_kernels/mla_mixbench/test_cpu.py, perfbot_kernels/mla_splitkv/test_cpu.py, perfbot_kernels/mla_split/test_cpu.py, perfbot_kernels/mla_varsplit/test_cpu.py, perfbot_kernels/moe_front/r0.py, perfbot_kernels/nullarm/__init__.py, perfbot_kernels/reqlog/test_cpu.py"
+ ],
+ "points": {
+  "conc32": {
+   "tree_sha256": "d77685c184d3d2ccdd46f66ec5f2872685af59d4cce8f458c51cc59bfc1b34be",
+   "files": 205,
+   "layers": [
+    "results/checkpoint-6/served-conc32",
+    "internal/overlay-redacted-conc32"
+   ],
+   "source": "results/checkpoint-6/conc32/q1-*/c32-l9q1-*/metrics.json and results/checkpoint-6/conc32/eval-c32q1ev/c32-l9q1-ev/metrics.json overlay_tree_sha256 (every checkpoint-6 conc-32 land-9 q1 arm)",
+   "composition": "pinned harness overlay (workload revision 5b410c3849f23c517fa0748a7464ece697d7ff1c) with the land-9-r2-q1 bundle (harness bundle tree 59ef4bbbd2e447671a0a2a7e53d29f89bae138ac487058d12413447215ad99c9 in results/checkpoint-6/conc32/q1-*/bundles.json) laid on top. It is the default tree with 3 files replaced: arm_env.json (the conc-32 switches, sha256 22877606), perfbot_kernels/reqlog/__init__.py and its CPU test (log-only STEPDEC fields pn and pnmax added at the new harness revision)"
+  }
+ }
+}

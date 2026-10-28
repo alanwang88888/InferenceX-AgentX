@@ -1,0 +1,16 @@
+{
+  "c1": {
+    "overlay": {
+      "class": "ctl",
+      "source": "<path>",
+      "tree_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "land2": {
+    "overlay": {
+      "class": "R2",
+      "source": "<path>",
+      "tree_sha256": "e48f54bebcdd1762e01ca23a540e7a42bea8126e3666837b7e17fe30a2cc6be0"
+    }
+  }
+}

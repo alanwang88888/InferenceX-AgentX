@@ -1,0 +1,88 @@
+{
+ "commit": "49cb2bbf71cfd36ee5aa33d1e184b1cddff55294",
+ "how": "sha256 of `git show <commit>:<rel>` in a vLLM checkout, one entry per overlay/vllm/**.py (driver/tests/test_overlay_base.py)",
+ "image_check": "2026-10-18: all base_sha256 equal the installed files in contract image.tarball (sha256 97f09c68...3c48), layer blobs/sha256/32e1eac0abca43f74..., usr/local/lib/python3.12/dist-packages/<rel>; no whiteouts; the five P-07 entries (2026-10-19) are git show 49cb2bbf only, not checked against the tarball [unverified]",
+ "base_sha256": {
+  "vllm/model_executor/layers/fused_moe/experts/trtllm_mxfp4_moe.py": "0a5031135053cee01db058d43039342dca954f40080c2855fefb103789c7d981",
+  "vllm/model_executor/layers/mamba/checkpoint.py": "0ef8c4117d4c80e3ecf2f1754b179d8ce50980c10a7f8383f8f8683aa131eb2a",
+  "vllm/models/kimi_k3/nvidia/kda.py": "97c1f1183bc4a019672d30f29aea93c902db9cbccb9567dfa3f29ef26a115c10",
+  "vllm/models/kimi_k3/nvidia/latent_moe_runner.py": "d27240ecdc51f4d402d2671d7d7f4d8ab1fb9be0f9e2313a8625b259eb51a4ec",
+  "vllm/models/kimi_k3/nvidia/mla.py": "f306e24238dca1fe55a635cf735dcbcacbfac98cef3a5d9c495e7a69a84b9467",
+  "vllm/models/kimi_k3/nvidia/model.py": "a0a31506f307cef8a7547d336df9a2e38fb907a150be61a71145abb59bdd719f",
+  "vllm/models/kimi_k3/nvidia/ops/attn_res.py": "38c4d67cdb8366cd7b959305ddd251c6b9c9fa408e7481d3dac05ebf3b44028c",
+  "vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/allreduce_rmsnorm_reduce_scatter_early_exit.py": "126dbd3736ceda0d368b1d651a4d21fc77c6db4ef874e5c2d6a472f8bc8dfd48",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/prepared.py": "bcf71bf4e083bd08ed562028adf9cd6145c1f44269fe172dc90cb41fe2f02eb0",
+  "vllm/v1/attention/ops/dcp.py": "f76296c841363f26c83908229eaddabfce665a9a39b7e802d252885d6d15353e",
+  "vllm/v1/core/sched/scheduler.py": "49f21c9a029c9b04884b183b216c2dcc817bebdf67f2497fc9b339c3f87d0c4c",
+  "vllm/v1/core/single_type_kv_cache_manager.py": "40cdcd418592182b6ca681c2a23efb659daa05587fd7cd28fcb03a7b1fb20fa6",
+  "vllm/v1/kv_cache_interface.py": "39ea5be3054f97238f81ba070ea661f1b5975a6268ced5f413d4a057ea449d4a",
+  "vllm/v1/worker/gpu/model_states/mamba_hybrid.py": "262de489e3c02a2b1b93acd2a0d88ddced82ecebe050ca95ea91ba3fe501e6f4",
+  "vllm/v1/worker/gpu/spec_decode/dspark/speculator.py": "97bcfaa655c6d4a5ecdfb17ab87b80547e8216b9d15a91c341798ebbb558f146",
+  "vllm/v1/worker/gpu_worker.py": "b401a1e0579df877f16184cb2850f4ddf034bb60f9877500e324fd586a563e20",
+  "vllm/model_executor/warmup/flashinfer_autotune_cache.py": "d0991bc62ea334ff211cca7a9e07853a9003de0403c68bb74c54486bd85d63f3"
+ },
+ "intentional_edits": {
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/prepared.py": {
+   "tag": "# PERFBOT R-UP-CAP",
+   "why": "R-UP-CAP route-id probe (perfbot_kernels.routecap); off unless PERFBOT_ROUTECAP=1, record() returns before any torch op"
+  },
+  "vllm/v1/worker/gpu/spec_decode/dspark/speculator.py": {
+   "tag": "# PERFBOT P-10",
+   "why": "P-10 (iii-A) fused Markov sampler (perfbot_kernels.markov_sampler, lane P 525880c, kernel/PATCH.md); off unless PERFBOT_EXP_MARKOV=1: run() declines and the image loop runs; capture() warms the fused round before the draft graph capture"
+  },
+  "vllm/v1/kv_cache_interface.py": {
+   "tag": "# PERFBOT P-07",
+   "why": "P-07 form K: the two switches (read once at import; PERFBOT_EXP_KDA_CKPT=1 turns on parts (1)+(2) and the part (3) skip; PERFBOT_EXP_KDA_HASHFIX=1 the skip alone); part (1) vllm#60888 mid-block branch of is_mamba_prefill_checkpoint_valid (col == init when the start is not block-aligned); perfbot_p07_fresh_ok, the part (2) gate shared by scheduler, manager and worker"
+  },
+  "vllm/v1/core/sched/scheduler.py": {
+   "tag": "# PERFBOT P-07",
+   "why": "P-07 part (2) scheduler gate: one added clause in _mamba_block_aligned_split, the col <= init shape only on a request's first chunk (num_computed_tokens == 0)"
+  },
+  "vllm/v1/core/single_type_kv_cache_manager.py": {
+   "tag": "# PERFBOT P-07",
+   "why": "P-07 part (2) manager gate in MambaManager._needs_internal_checkpoint (request not yet allocated); part (3) vllm#60888 cache_blocks skip (a chunk that starts mid-block and runs past the boundary never publishes that slot under the full-block hash), on iff HASHFIX=1 or CKPT=1"
+  },
+  "vllm/model_executor/layers/mamba/checkpoint.py": {
+   "tag": "# PERFBOT P-07",
+   "why": "P-07 part (2) worker gate: compute_mamba_prefill_checkpoints declines the col <= init shape on a row that is not fresh; fresh rows come from PERFBOT_P07_FRESH_ROWS (None = all fresh = base); \"# PERFBOT P-07 ckptlog\" lines: the PERFBOT_EXP_KDA_CKPT_LOG switch (read once at import; the log module perfbot_kernels.kda_ckptlog loads only when it is 1) and the read-only source-digest hook after the export launch"
+  },
+  "vllm/v1/worker/gpu/model_states/mamba_hybrid.py": {
+   "tag": "# PERFBOT P-07",
+   "why": "P-07 part (2) worker flag source (V2): a row is fresh on its first chunk after add_request (the row the runner sent whole, new or resumed); set only when PERFBOT_EXP_KDA_CKPT=1; \"# PERFBOT P-07 ckptlog\" lines: the read-only read-back hook (perfbot_kernels.kda_ckptlog.note_step) at the start of preprocess_state, None unless PERFBOT_EXP_KDA_CKPT_LOG=1"
+  },
+  "vllm/models/kimi_k3/nvidia/model.py": {
+   "tag": "# PERFBOT BUILD",
+   "why": "ARM-TIME item 1, one switch per line pair at the start of build_specialized_decode, before SpecializedDecode is built: PERFBOT_EXP_INITTIME=1 calls perfbot_kernels.inittime.install(), which wraps the build's constructors and cute.compile in place and only times and prints (PERFBOT-INITTIME lines); PERFBOT_EXP_CUTE_CACHE=1 calls perfbot_kernels.cutecache.install() (E17c), which lets cute.compile use the CuTe DSL's own file cache (PERFBOT-CUTECACHE lines); PERFBOT_EXP_CUTE_PRETRACE=1|export calls perfbot_kernels.pretrace.install() (ARM-TIME Option A), which keys cute.compile before the trace and loads the exported module on a hit (PERFBOT-PRETRACE lines); and one pair at the start of KimiK3ForConditionalGeneration.__init__, before the loader asks for weights: PERFBOT_EXP_LOADTIME=1 calls perfbot_kernels.loadtime.install() (W1'), which wraps default_loader's fastsafetensors_weights_iterator global and only times and prints (PERFBOT-LOADTIME lines); off = the module does not load"
+  },
+  "vllm/v1/worker/gpu_worker.py": {
+   "tag": "# PERFBOT BUILD",
+   "why": "CGPROFILE, determine_available_memory: profile_cudagraph_memory() runs only when VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS is set; unset, upstream discards its estimate (cudagraph_memory_estimate_applied = 0) after a full capture pass (~43 s at server start), so the KV cache size is unchanged; set, the file is upstream"
+  },
+  "vllm/model_executor/warmup/flashinfer_autotune_cache.py": {
+   "tag": "# PERFBOT BUILD: ATKEY",
+   "why": "W5 narrow key: flashinfer_autotune_cache_hash returns perfbot_kernels.atkey.key(vllm_config) (model, quantization, parallel sizes, max_num_batched_tokens, drafter, KV dtype, PERFBOT_ATKEY_SALT) in place of sha256(VllmConfig.compute_hash()), so every arm loads the one tuning of record (autotune-record/)"
+  }
+ },
+ "bundle_how": "sha256 of `git show <commit>:<rel>`, one entry per vllm/**.py an item bundle serves that overlay/vllm does not carry; with base_sha256 it is the image record k3_inferenceX patches/image-base-sha256.json (driver/tests/test_overlay_base.py)",
+ "bundle_base_sha256": {
+  "vllm/models/kimi_k3/nvidia/dspark_mla.py": "adfe621d7fbb89616e207118000c9f61201b2ff4af9b8d43387d71eec0344121",
+  "vllm/models/kimi_k3/nvidia/kda_metadata.py": "a77ae9bc5870984f111b61ee226a558315c242d1984f9708a764900dc3a6df9d",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/gemm/projection.py": "b0322067ed374a50b4c2597306a24623bb2a2f45725b5c977bf6edfde2937cc9",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/gemm/splitk.py": "3353ece0447d1cdb2dd70dcb504248a287b96e76c29f87f8398f41c2e9f55544",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/dcp.py": "1e7693dabeac9d5a29de97a434e5d3dae032f5c23483054077e5d3e54587e3f0",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/prepared.py": "916217c1febd4ae10711e76a969036f8442378cb999e38dba54102a49cc64535",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/front.py": "f2c3439f9ecc18e71a050280543c6e76fffd3b4499fd5bc0b35ece467924acaf",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/moe/tail_runtime.py": "778e14a504aacee8939cfa8050245e2b89c1f154f627e97f8ebe560e7dda4577",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/runtime/prefetch.py": "dcfca52ad839593ae36921ad79d2ffd177d953be51345e32a76088ca6a844b5d",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/runtime/providers.py": "0b6694af1df4f464fdb6def885113f09923c4f15faf6acc55f14e4d6a3a3676a",
+  "vllm/v1/attention/backends/mla/prefill/trtllm_ragged.py": "acade256558ba970ae89b5ac543ab47d42cfe06e0c062e20b981918c332dcfac",
+  "vllm/v1/worker/gpu/cp_utils.py": "d91e59d28d03e1df79628b64a865d9b68d40bec4d7b6bf194317e47ca8152f3f",
+  "vllm/v1/worker/gpu/model_runner.py": "704a67060e2ad24e6e6236262a99a1b23b078cf1e46efb4e593f8e1619da62b8",
+  "vllm/v1/worker/gpu/sample/sampler.py": "620b0ff1bea504ebe61794b91ab07cdc243d3d05f8dea4c4044c374add76270b",
+  "vllm/v1/worker/gpu/spec_decode/dflash/speculator.py": "28fb34eedddf62acbcb1018a2a31d5a2bd79937e43b7819e3025591fcd0128fe",
+  "vllm/v1/worker/gpu/spec_decode/rejection_sampler.py": "25759f98e8aace9a556bc4252c206f246535f0536ebc919f97e097f92a72066a",
+  "vllm/v1/worker/gpu/states.py": "ae5d600c17fbad3a529a27b234ca48ffd3ffe21a99e6866c9570906a76f3115f",
+  "vllm/v1/worker/utils.py": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+  "vllm/models/kimi_k3/nvidia/specialized_decode/cutedsl/mla/query.py": "11f4b434d499f6c985d16f16c0bbf914edf58e336a70942f285dc40e5dcf4bb2"
+ }
+}

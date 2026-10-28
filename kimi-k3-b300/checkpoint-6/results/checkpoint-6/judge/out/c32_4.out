@@ -1,0 +1,52 @@
+READ c32 53bf1a26; poolgen.py 5f7dfa15 poolread.py 9b667aee cpread.py ab5260c6 cp4judge dfe1ad11
+LIVE c32-s1     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c32-s2     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c32-s3     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+POOL32 out-c32aa1/c32-s4 absent
+POOL32 out-c32aa1/c32-stock absent
+POOL32 out-c32aa1/c32-l9q1-a absent
+POOL32 out-c32aa1/c32-l9q1-b absent
+POOL32 out-c32aa1/c32-l9q1-c absent
+LIVE c32-s1     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c32-s2     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c32-s3     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+POOL32 out-c32aa22/c32-s4 absent
+POOL32 out-c32aa22/c32-stock absent
+POOL32 out-c32aa22/c32-l9q1-a absent
+POOL32 out-c32aa22/c32-l9q1-b absent
+POOL32 out-c32aa22/c32-l9q1-c absent
+POOL32 out-c32aa3/c32-s1 absent
+POOL32 out-c32aa3/c32-s2 absent
+POOL32 out-c32aa3/c32-s3 absent
+LIVE c32-s4     PERFBOT-SWITCH-CHECK set=1 live=1 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+POOL32 out-c32aa3/c32-stock absent
+POOL32 out-c32aa3/c32-l9q1-a absent
+POOL32 out-c32aa3/c32-l9q1-b absent
+POOL32 out-c32aa3/c32-l9q1-c absent
+POOL32 out-c32p0a/c32-s1 absent
+POOL32 out-c32p0a/c32-s2 absent
+POOL32 out-c32p0a/c32-s3 absent
+POOL32 out-c32p0a/c32-s4 absent
+REF  c32-stock  reference arm, no live gate | gate_failures [] -> KEPT
+POOL32 out-c32p0a/c32-l9q1-a absent
+POOL32 out-c32p0a/c32-l9q1-b absent
+POOL32 out-c32p0a/c32-l9q1-c absent
+POOL32 out-c32q1c3/c32-s1 absent
+POOL32 out-c32q1c3/c32-s2 absent
+POOL32 out-c32q1c3/c32-s3 absent
+POOL32 out-c32q1c3/c32-s4 absent
+POOL32 out-c32q1c3/c32-stock absent
+LIVE c32-l9q1-a PERFBOT-SWITCH-CHECK set=12 live=12 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c32-l9q1-b PERFBOT-SWITCH-CHECK set=12 live=12 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+POOL32 out-c32q1c3/c32-l9q1-c absent
+POOL32 out-c32q1c2/c32-s1 absent
+POOL32 out-c32q1c2/c32-s2 absent
+POOL32 out-c32q1c2/c32-s3 absent
+POOL32 out-c32q1c2/c32-s4 absent
+POOL32 out-c32q1c2/c32-stock absent
+POOL32 out-c32q1c2/c32-l9q1-a absent
+POOL32 out-c32q1c2/c32-l9q1-b absent
+LIVE c32-l9q1-c PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=bdcc573b record=bdcc573b salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+BAND conc32 official   controls n 8 [55.72, 59.46, 57.17, 59.14, 57.07, 59.02, 58.5, 56.01] candidates n 3 [54.52, 53.24, 55.53] band 1.847 gain -3.331 verdict GAIN
+BAND conc32 consistent controls n 8 [58.013, 62.308, 58.356, 59.773, 57.186, 61.449, 59.318, 57.062] candidates n 3 [55.673, 54.977, 56.825] band 2.460 gain -3.358 verdict GAIN
+SOLID-AB conc32 CLEAR NO_REGRESS

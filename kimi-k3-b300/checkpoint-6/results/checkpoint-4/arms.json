@@ -1,0 +1,20 @@
+[
+ {
+  "name": "land8",
+  "env": {
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1",
+   "PERFBOT_EXP_STEPLOG": "1"
+  },
+  "overlay": "<path>"
+ },
+ {
+  "name": "land5",
+  "env": {
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1",
+   "PERFBOT_EXP_STEPLOG": "1"
+  },
+  "overlay": "<path>"
+ }
+]

@@ -1,0 +1,19 @@
+READ poolgen 5f7dfa15 (method = poolread 9b667aee); cp4judge.py dfe1ad11 c1pair.py a46dca57 c1aba.py f8f9fc15 cpread.py ab5260c6
+LIVE ctl-land8  PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE land9      PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl8-end   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl-land8  PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE land9      PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl8-end   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl-land8  PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE land9      PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE ctl8-end   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+BAND conc8 official   controls n 6 [5.15, 4.95, 6.36, 5.32, 5.08, 5.64] candidates n 3 [4.82, 4.74, 4.77] band 0.653 gain -0.640 verdict INSIDE
+BAND conc8 consistent controls n 6 [6.062, 6.067, 6.642, 6.21, 6.181, 6.235] candidates n 3 [5.621, 5.309, 5.449] band 0.272 gain -0.773 verdict GAIN
+LIVE c1-land8   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c1-land9   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c1-land8   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=a4b725cd record=a4b725cd salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+LIVE c1-land9   PERFBOT-SWITCH-CHECK set=11 live=11 dead=- | PERFBOT-ATKEY key=6b30cb81 record=6b30cb81 salt=- hit=35 tuned=0 intact=yes | gate_failures [] -> VALID
+BAND conc1 official   controls n 2 [3.027, 3.01] candidates n 2 [2.837, 2.852] band 0.125 (sampling 0.125, ctl cross-run A/A 0.017) gain -0.174 verdict GAIN
+BAND conc1 consistent controls n 2 [3.106, 3.094] candidates n 2 [2.898, 2.881] band 0.098 (sampling 0.098, ctl cross-run A/A 0.013) gain -0.210 verdict GAIN
+SOLID-AB conc8 NOT_CLEAR conc1 CLEAR

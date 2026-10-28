@@ -1,0 +1,18 @@
+[
+ {
+  "name": "l1-eval-off",
+  "env": {},
+  "overlay": "<internal path>/bundles/ctl"
+ },
+ {
+  "name": "l1-eval-on",
+  "env": {
+   "PERFBOT_EXP_DRAFT_CHAIN": "1",
+   "PERFBOT_EXP_GLUE": "X2,S,D,G",
+   "PERFBOT_EXP_MLA_CTX_SEGMENTS": "auto",
+   "PERFBOT_EXP_PREFILL_GRAPH": "1",
+   "PERFBOT_SERVER_EXTRA_ARGS": "--compilation-config {\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"cudagraph_capture_sizes\":[7,8,14,16,21,24,28,32,35,40,48,56,64,72,80,88,96,104,112,120,128,256,512,1024,2048,4096,8192]}"
+  },
+  "overlay": "<internal path>/bundle/land-1b"
+ }
+]

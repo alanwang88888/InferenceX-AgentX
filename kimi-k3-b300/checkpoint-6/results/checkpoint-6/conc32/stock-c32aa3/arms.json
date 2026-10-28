@@ -1,0 +1,10 @@
+[
+ {
+  "name": "c32-s4",
+  "overlay": "<path>",
+  "env": {
+   "PERFBOT_CONC": "32"
+  },
+  "note": "cell c32aa3: stock reference A/A control 4 (coord 21:53Z SEAT FILL; joins the c32aa1/c32aa2 pool, 7 -> 8 stock arms). Same as c32-s1..s3 (override_c32 as published, PERFBOT_CONC=32), UNSALTED on laid record bdcc573b (coord 16:57Z rule). Seed 148568."
+ }
+]

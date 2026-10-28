@@ -1,0 +1,6 @@
+# Proposed change to inferencex-e2e/configs/nvidia-master.yaml, key kimik3-fp4-b300-vllm-agentic-dspark: the image line only.
+# At 7b28963e the key reads: image: vllm/vllm-openai:nightly-dev-x86_64-cu13-3696c77
+kimik3-fp4-b300-vllm-agentic-dspark:
+  image: vllm/vllm-openai:nightly-49cb2bbf71cfd36ee5aa33d1e184b1cddff55294@sha256:8c1434bfee7d7626eef78ef70600434ffba4a1b8813cb1d1c8707ad25f47035e
+  # every other field unchanged (model moonshotai/Kimi-K3, runner cluster:b300-dsxe, precision fp4, framework vllm,
+  # srt-recipe-dir kimik3/vllm/b300-fp4-mtp, scenarios agentic-coding, conc-list [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 70])

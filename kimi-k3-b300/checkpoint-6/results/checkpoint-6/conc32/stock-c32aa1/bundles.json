@@ -1,0 +1,23 @@
+{
+  "c32-s1": {
+    "overlay": {
+      "class": "ctl",
+      "source": "<path>",
+      "tree_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "c32-s2": {
+    "overlay": {
+      "class": "ctl",
+      "source": "<path>",
+      "tree_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "c32-s3": {
+    "overlay": {
+      "class": "ctl",
+      "source": "<path>",
+      "tree_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  }
+}

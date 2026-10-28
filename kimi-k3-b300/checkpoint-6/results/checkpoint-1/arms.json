@@ -1,0 +1,25 @@
+[
+ {
+  "name": "c0",
+  "env": {
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1"
+  }
+ },
+ {
+  "name": "lb",
+  "env": {
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1"
+  },
+  "overlay": "<path>"
+ },
+ {
+  "name": "c1",
+  "env": {
+   "PERFBOT_EXP_CUTE_CACHE": "1",
+   "PERFBOT_EXP_INITTIME": "1"
+  },
+  "overlay": "<path>"
+ }
+]
